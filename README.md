@@ -12,5 +12,6 @@ Os dois irmãos, Tobias e Lola, conseguiram [resgatar o pai da Matrix](https://g
 |-|-|-|
 | [Cryptobiosis](https://github.com/cryptobiosis-studio) | [2024.2](https://github.com/orgs/cryptobiosis-studio/projects/1) | [Gunslinger](https://github.com/cryptobiosis-studio/gunslinger) |
 | [Guiter Hero Luthier](https://github.com/guitar-hero-luthier) | [2024.2](https://github.com/orgs/guitar-hero-luthier/projects/1) | [Guitar Hero Luthier](https://github.com/guitar-hero-luthier/guitar-hero-luthier) |
+| [Hidan Studion](https://github.com/Hidan-Studio) | [2024.2](https://github.com/orgs/Hidan-Studio/projects/1) | [rescue run](https://github.com/Hidan-Studio/rescue-run) |
 | [Piermed Games](https://github.com/Piermed-Games) | [2024.2](https://github.com/orgs/Piermed-Games/projects/1) | [Shape Adventure](https://github.com/Piermed-Games/Shape-Adventure) |
 | [talemes](https://github.com/talemes) | 2024.2 | [jengu](https://github.com/talemes/jengu) |
