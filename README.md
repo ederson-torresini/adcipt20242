@@ -4,7 +4,7 @@ Projeto do semestre 2024.2.
 
 ## Premissa
 
-Este jogo trata de dois personagens perdidos em um labirinto em que eles não se lembram como chegaram. Eles são Maria e João.
+Os dois irmãos, Tobias e Lola, conseguiram [resgatar o pai da Matrix](https://github.com/ederson-torresini/adcipt20232). Meses depois, brincando com a IA da casa, descobrem que ela esconde segredos industriais do pai que foram copiados pela Matrix, supostamente, desativada. Assim, eles precisam desligar o equipamento antes que algo de pior aconteça.
 
 ## Equipes
 
