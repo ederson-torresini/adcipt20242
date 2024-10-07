@@ -25,14 +25,14 @@ São dois os personagens:
 
 Quanto aos equipamentos da casa, são eles:
 
-1. Câmera de segurança: liga e desliga de forma intermitente, com movimentação regular (*pan*) de até 180 graus. Quando está ligada, se capturar a imagem de um dos jogadores, ambos retornam ao *chekpoint*.
+1. Câmera de segurança: liga e desliga de forma intermitente, com movimentação regular (*pan*) de até 180 graus. Quando está ligada, se capturar a imagem de um dos jogadores, ambos retornam ao *checkpoint*.
 1. Sensor de presença: mesmo funcionamento da câmera, porém sem movimento. Não tem acesso físico, e por isso precisa ser desligado pelo disjuntor ou ter seu fio cortado.
-1. IA de mesa: ouve as conversas dos jogadores. Se captar uma voz no ambiente, ambos retornam ao *chekpoint*.
+1. IA de mesa: ouve as conversas dos jogadores. Se captar uma voz no ambiente, ambos retornam ao *checkpoint*.
 1. Roteador: o chefão. Não tem acesso físico, e por isso precisa ser desligado remotamente.
 
 ### Regras
 
-O jogo é baseado em tempo, onde os jogadores devem descobrir o jeito correto de desligar cada equipamento, além da sua ordem. Ao estilo *rogue-like*, toda vez que forem detectados, eles voltam ao início da cena, o *chekpoint*, para tentar novamente. Porém, o tempo avança sempre, o que significa que os jogadores precisarão lidar bem com o tempo, e suas falhas, para chegarem ao final em tempo.
+O jogo é baseado em tempo, onde os jogadores devem descobrir o jeito correto de desligar cada equipamento, além da sua ordem. Ao estilo *rogue-like*, toda vez que forem detectados, eles voltam ao início da cena, o *checkpoint*, para tentar novamente. Porém, o tempo avança sempre, o que significa que os jogadores precisarão lidar bem com o tempo, e suas falhas, para chegarem ao final em tempo.
 
 Se ambos os jogadores conseguirem desligar todos os equipamentos em tempo hábil, eles ganham o jogo. Caso contrário, perdem e voltam à tela inicial. Na próxima partida, o jogo pode movimentar ou mesmo mudar os equipamentos.
 
