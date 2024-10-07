@@ -49,6 +49,6 @@ O jogo pode ser personalizado com *skins*, tanto para os personagens quanto para
 | [Guiter Hero Luthier](https://github.com/guitar-hero-luthier) | [2024.2](https://github.com/orgs/guitar-hero-luthier/projects/1) | [Guitar Hero Luthier](https://github.com/guitar-hero-luthier/guitar-hero-luthier) |
 | [Hidan Studion](https://github.com/Hidan-Studio) | [2024.2](https://github.com/orgs/Hidan-Studio/projects/1) | [Rescue Run](https://github.com/Hidan-Studio/rescue-run) |
 | [LM Enterprise](https://github.com/lmenterprise) | [2024.2](https://github.com/orgs/lmenterprise/projects/1) | [Mazel](https://github.com/lmenterprise/mazel) |
-| [seeus](https://github.com/seeus) | [2024.2]() | [Herdeiras da Magia](https://github.com/seeus/herdeiras-da-magia) |
+| [seeus](https://github.com/seeus) | [2024.2](https://github.com/orgs/seeus/projects/1) | [Herdeiras da Magia](https://github.com/seeus/herdeiras-da-magia) |
 | [Piermed Games](https://github.com/Piermed-Games) | [2024.2](https://github.com/orgs/Piermed-Games/projects/1) | [Shape Adventure](https://github.com/Piermed-Games/Shape-Adventure) |
 | [talemes](https://github.com/talemes) | 2024.2 | [jengu](https://github.com/talemes/jengu) |
