@@ -9,9 +9,10 @@ export default class abertura extends Phaser.Scene {
 
   create () {
     this.add.image(400, 225, 'abertura')
-    this.input.on('pointerdown', () => {
-      this.scene.stop('abertura')
-      this.scene.start('jogo')
-    })
+      .setInteractive()
+      .on('pointerdown', () => {
+        this.scene.stop('abertura')
+        this.scene.start('sala')
+      })
   }
 }
