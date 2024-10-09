@@ -11,6 +11,15 @@ export default class sala extends Phaser.Scene {
   }
 
   create () {
-    this.physics.add.sprite(0, 225, 'personagem', 88)
+    this.personagem = this.physics.add.sprite(0, 225, 'personagem', 88)
+    this.anims.create({
+      key: 'andar-direita',
+      frames: this.anims.generateFrameNumbers('personagem', { start: 88, end: 96 }),
+      frameRate: 10,
+      repeat: -1
+    })
+
+    this.personagem.setVelocityX(100)
+    this.personagem.play('andar-direita')
   }
 }
