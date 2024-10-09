@@ -21,8 +21,11 @@ export default class sala extends Phaser.Scene {
     this.personagem = this.physics.add.sprite(50, 225, 'personagem', 88)
       .setInteractive()
       .on('pointerdown', () => {
-        this.personagem.setVelocityX(100)
-        this.personagem.play('andar-direita')
+        if (this.personagem.body.velocity.x === 0) {
+          this.personagem.setVelocityX(100)
+        } else {
+          this.personagem.setVelocityX(0)
+        }
       })
   }
 }
