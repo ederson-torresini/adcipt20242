@@ -3,7 +3,14 @@ export default class sala extends Phaser.Scene {
     super('sala')
   }
 
-  preload () { }
+  preload () {
+    this.load.spritesheet('personagem', 'assets/personagem.png', {
+      frameWidth: 64,
+      frameHeight: 64
+    })
+  }
 
-  create () { }
+  create () {
+    this.physics.add.sprite(0, 225, 'personagem', 88)
+  }
 }
