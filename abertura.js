@@ -14,5 +14,6 @@ export default class abertura extends Phaser.Scene {
         this.scene.stop('abertura')
         this.scene.start('sala')
       })
+      .preFX.addBlur()
   }
 }
