@@ -48,8 +48,10 @@ O jogo pode ser personalizado com *skins*, tanto para os personagens quanto para
 | [Cryptobiosis](https://github.com/cryptobiosis-studio) | [2024.2](https://github.com/orgs/cryptobiosis-studio/projects/1) | [Gunslinger](https://github.com/cryptobiosis-studio/gunslinger) |
 | [Guiter Hero Luthier](https://github.com/guitar-hero-luthier) | [2024.2](https://github.com/orgs/guitar-hero-luthier/projects/1) | [Guitar Hero Luthier](https://github.com/guitar-hero-luthier/guitar-hero-luthier) |
 | [Hidan Studion](https://github.com/Hidan-Studio) | [2024.2](https://github.com/orgs/Hidan-Studio/projects/1) | [Rescue Run](https://github.com/Hidan-Studio/rescue-run) |
+| [lendária studios](https://github.com/lendaria-studios) | [2024.2]() | [The Last Keepers](https://github.com/lendaria-studios/the-last-keepers) | 
 | [LM Enterprise](https://github.com/lmenterprise) | [2024.2](https://github.com/orgs/lmenterprise/projects/1) | [Mazel](https://github.com/lmenterprise/mazel) |
 | [joginho](https://github.com/joginho) | [2024.2](https://github.com/orgs/joginho/projects/1) | [Suave na nave](https://github.com/joginho/joginho) |
+| [N K Corporeichom](https://github.com/n-k-corporeichom) | [2024.2](https://github.com/orgs/n-k-corporeichom/projects/1) | [jogo zumbi](https://github.com/n-k-corporeichom/jogo_zumbi) | 
 | [pixel por pixel](https://github.com/pixel-por-pixel) | [2024.2](https://github.com/orgs/pixel-por-pixel/projects/1) | [The fate of the letters](https://github.com/pixel-por-pixel/the-fate-of-the-letters) |
 | [seeus](https://github.com/seeus) | [2024.2](https://github.com/orgs/seeus/projects/1) | [Herdeiras da Magia](https://github.com/seeus/herdeiras-da-magia) |
 | [Piermed Games](https://github.com/Piermed-Games) | [2024.2](https://github.com/orgs/Piermed-Games/projects/1) | [Shape Adventure](https://github.com/Piermed-Games/Shape-Adventure) |
