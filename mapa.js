@@ -19,6 +19,23 @@ export default class mapa extends Phaser.Scene {
       frameWidth: 64,
       frameHeight: 64
     })
+
+    this.load.spritesheet('cima', 'assets/cima.png', {
+      frameWidth: 64,
+      frameHeight: 64
+    })
+    this.load.spritesheet('direita', 'assets/direita.png', {
+      frameWidth: 64,
+      frameHeight: 64
+    })
+    this.load.spritesheet('esquerda', 'assets/esquerda.png', {
+      frameWidth: 64,
+      frameHeight: 64
+    })
+    this.load.spritesheet('baixo', 'assets/baixo.png', {
+      frameWidth: 64,
+      frameHeight: 64
+    })
   }
 
   create () {
@@ -53,15 +70,10 @@ export default class mapa extends Phaser.Scene {
     })
 
     this.personagem = this.physics.add.sprite(50, 225, 'personagem', 15)
-      .setInteractive()
-      .on('pointerdown', () => {
-        if (this.personagem.body.velocity.x === 0) {
-          this.personagem.setVelocityX(100)
-          this.personagem.anims.play('andar-direita')
-        } else {
-          this.personagem.setVelocityX(0)
-          this.personagem.anims.play('parado')
-        }
-      })
+
+    this.cima = this.add.sprite(100, 250, 'cima', 0)
+    this.baixo = this.add.sprite(100, 350, 'baixo', 0)
+    this.esquerda = this.add.sprite(600, 350, 'esquerda', 0)
+    this.direita = this.add.sprite(700, 350, 'direita', 0)
   }
 }
