@@ -55,4 +55,4 @@ O jogo pode ser personalizado com *skins*, tanto para os personagens quanto para
 | [pixel por pixel](https://github.com/pixel-por-pixel) | [2024.2](https://github.com/orgs/pixel-por-pixel/projects/1) | [The fate of the letters](https://github.com/pixel-por-pixel/the-fate-of-the-letters) | 0 (7 tarefas) | 0 (2 tarefas)
 | [seeus](https://github.com/seeus) | [2024.2](https://github.com/orgs/seeus/projects/1) | [Herdeiras da Magia](https://github.com/seeus/herdeiras-da-magia) | 0 (8 tarefas) | 6 |
 | [Piermed Games](https://github.com/Piermed-Games) | [2024.2](https://github.com/orgs/Piermed-Games/projects/1) | [Shape Adventure](https://github.com/Piermed-Games/Shape-Adventure) | 0 (8 tarefas) | 0 (4 tarefas) |
-| [talemes](https://github.com/talemes) | [2024.2](https://github.com/orgs/talemes/projects/1) | [jengu](https://github.com/talemes/jengu) | 0 | 0 |
+| [talemes](https://github.com/talemes) | [2024.2](https://github.com/orgs/talemes/projects/1) | [jengu](https://github.com/talemes/jengu) | 0 (0 tarefa) | 0 (0 tarefa) |
