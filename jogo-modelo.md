@@ -36,7 +36,9 @@ const audio = document.querySelector('audio')
 const iceServers = {
   iceServers: [
     {
-      urls: 'stun:stun.l.google.com:19302'
+      urls: 'turn:feira-de-jogos.dev.br',
+      username: 'adcipt202412',
+      credential: 'adcipt20242';
     }
   ]
 }
