@@ -443,9 +443,9 @@ setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
         fetch(&#39;https://feira-de-jogos.dev.br/api/v2/credit&#39;, {
           method: &#39;POST&#39;,
           headers: {
-            Accept: &#39;application/json&#39;,
-            Authorization: `Bearer ${res.credential}`,
-            Content-Type: &#39;application/json&#39;
+            &#39;Accept&#39;: &#39;application/json&#39;,
+            &#39;Authorization&#39;: `Bearer ${res.credential}`,
+            &#39;Content-Type&#39;: &#39;application/json&#39;
           },
           body: JSON.stringify({
             product: 1,
