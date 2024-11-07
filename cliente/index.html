@@ -233,7 +233,10 @@ Tobias estava quase perdendo a razão quando encontrou a sua irmã desacordada n
 Fim do jogo!</tw-passagedata><tw-passagedata pid="3" name="Quantidade de Jogadores" tags="" position="900,400" size="100,100">Iniciar partida com:
 
 &gt; [[1 jogador-&gt;Solo]]
-&gt; [[2 jogadores-&gt;Dupla]]</tw-passagedata><tw-passagedata pid="4" name="Capa" tags="" position="700,200" size="100,100">{embed image: &#39;capa.png&#39;}
+&gt; [[2 jogadores-&gt;Dupla]]</tw-passagedata><tw-passagedata pid="4" name="Capa" tags="" position="700,200" size="100,100">tempoDePartida: 10
+GoogleClientID: 331191695151-ku8mdhd76pc2k36itas8lm722krn0u64.apps.googleusercontent.com
+--
+{embed image: &#39;capa.png&#39;}
 
 &gt; [[Apresentação]] </tw-passagedata><tw-passagedata pid="5" name="Solo" tags="" position="1100,400" size="100,100">jogadores: 1
 --
@@ -379,7 +382,7 @@ Preparado?
 &gt; {restart link, label: &#39;Não!&#39;}
 </tw-passagedata><tw-passagedata pid="9" name="Relógio" tags="" position="1100,200" size="100,100">[JavaScript]
 const dataInicio = new Date()
-const minutosDePartida = 10
+const minutosDePartida = engine.state.get(&#39;minutosDePartida&#39;)
 const dataTermino = new Date(dataInicio.getTime() + minutosDePartida * 60000)
 
 function formatarData (data) {
@@ -409,12 +412,64 @@ sound.ambient.solo.description: &#39;Trilha para partida solo&#39;
 --
 {ambient sound: &#39;solo&#39;}
 {embed passage: &#39;Temporizador&#39;}
-Encontre todas as chaves antes que o tempo acabe!
 
-&gt; [[Quanto tempo?-&gt;Solo-0]]
+[JavaScript]
+window.setup = {}
 
-[if fimDeJogo]
-[[Referências]]</tw-passagedata><tw-passagedata pid="11" name="Dupla-0" tags="" position="1300,600" size="100,100">{embed passage: &#39;Temporizador&#39;}
+setup.loadError = function (oError) {
+  throw new URIError(
+    &#39;The script &#39; + oError.target.src + &quot; didn&#39;t load correctly.&quot;
+  )
+}
+
+setup.loadScript = function (url, onloadFunction) {
+  const newScript = document.createElement(&#39;script&#39;)
+  newScript.onerror = setup.loadError
+  if (onloadFunction) {
+    newScript.onload = onloadFunction
+  }
+  document.head.appendChild(newScript)
+  newScript.async = true
+  newScript.src = url
+}
+
+setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
+  google.accounts.id.initialize({
+    client_id: engine.state.get(&#39;GoogleClientID&#39;),
+    callback: (res) =&gt; {
+      if (res.error) {
+        console.error(res.error)
+      } else {
+        axios
+          .post(
+            &quot;https://feira-de-jogos.dev.br/api/v2/credit&quot;,
+            {
+              product: -1, // id do jogo cadastrado no banco de dados da Feira de Jogos
+              value: 100, // crédito em tijolinhos
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${res.credential}`,
+              },
+            },
+          )
+          .then(function (response) {
+            console.log(response)
+          })
+          .catch(function (error) {
+            console.error(error)
+          })
+      }
+    },
+  })
+
+  google.accounts.id.prompt((notification) =&gt; {
+    if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+      google.accounts.id.prompt()
+    }
+  })
+})
+[continued]</tw-passagedata><tw-passagedata pid="11" name="Dupla-0" tags="" position="1300,600" size="100,100">{embed passage: &#39;Temporizador&#39;}
 Encontre todas as chaves antes que o tempo acabe!
 
 &gt; [[Quanto tempo?-&gt;Solo-0]]
