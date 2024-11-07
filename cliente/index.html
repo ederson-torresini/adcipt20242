@@ -418,12 +418,12 @@ window.setup = {}
 
 setup.loadError = function (oError) {
   throw new URIError(
-    'The script ' + oError.target.src + " didn't load correctly."
+    &#39;The script &#39; + oError.target.src + &quot; didn&#39;t load correctly.&quot;
   )
 }
 
 setup.loadScript = function (url, onloadFunction) {
-  const newScript = document.createElement('script')
+  const newScript = document.createElement(&#39;script&#39;)
   newScript.onerror = setup.loadError
   if (onloadFunction) {
     newScript.onload = onloadFunction
@@ -433,14 +433,14 @@ setup.loadScript = function (url, onloadFunction) {
   newScript.src = url
 }
 
-setup.loadScript('https://accounts.google.com/gsi/client', () => {
+setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
   google.accounts.id.initialize({
-    client_id: engine.state.get('GoogleClientID'),
-    callback: (res) => {
+    client_id: engine.state.get(&#39;GoogleClientID&#39;),
+    callback: (res) =&gt; {
       if (res.error) {
         console.error(res.error)
       } else {
-        fetch('https://feira-de-jogos.dev.br/api/v2/credit', {
+        fetch(&#39;https://feira-de-jogos.dev.br/api/v2/credit&#39;, {
           body: JSON.stringify({
             product: -1,
             value: 100
@@ -448,14 +448,14 @@ setup.loadScript('https://accounts.google.com/gsi/client', () => {
           headers: {
             Authorization: `Bearer ${res.credential}`,
           }
-        }, () => {
+        }, () =&gt; {
           console.log(res)
         })
       }
     },
   })
 
-  google.accounts.id.prompt((notification) => {
+  google.accounts.id.prompt((notification) =&gt; {
     if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
       google.accounts.id.prompt()
     }
