@@ -446,7 +446,7 @@ setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
             Authorization: `Bearer ${res.credential}`,
           },
           body: JSON.stringify({
-            product: -1,
+            product: 1,
             value: 100
           })
         }, () =&gt; {
