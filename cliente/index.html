@@ -440,7 +440,8 @@ setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
       if (res.error) {
         console.error(res.error)
       } else {
-        fetch(&#39;https://feira-de-jogos.dev.br/api/v2/credit&#39;, {
+        const url = &#39;https://feira-de-jogos.dev.br/api/v2/credit&#39;
+        const options = {
           method: &#39;POST&#39;,
           headers: {
             &#39;Accept&#39;: &#39;application/json&#39;,
@@ -451,9 +452,18 @@ setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
             product: 1,
             value: 100
           })
-        }, () =&gt; {
-          console.log(res)
-        })
+        }
+        const req = new Request(url, options)
+        
+        fetch(req)
+          .then((response) =&gt; {
+            if (response.ok) {
+              location.assign(&#39;https://sj.ifsc.edu.br&#39;)
+            } else {
+              console.error(response.status)
+            }
+          }
+        )
       }
     },
   })
