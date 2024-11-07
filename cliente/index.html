@@ -293,10 +293,11 @@ navigator.mediaDevices.getUserMedia({ video: false, audio: true })
   .catch((error) =&gt; console.error(error))
 
 setup.loadScript(&#39;https://cdn.socket.io/4.8.0/socket.io.min.js&#39;, () =&gt; {
+  let socket
   if (window.location.host === &#39;feira-de-jogos.dev.br&#39;) {
-    const socket = io({ path: &#39;/adcipt20242/socket.io/&#39; })
+    socket = io({ path: &#39;/adcipt20242/socket.io/&#39; })
   } else {
-    const socket = io()
+    socket = io()
   }
 
   const sala = engine.state.get(&#39;sala&#39;)
