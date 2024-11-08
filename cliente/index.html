@@ -382,7 +382,7 @@ Preparado?
 &gt; {restart link, label: &#39;Não!&#39;}
 </tw-passagedata><tw-passagedata pid="9" name="Relógio" tags="" position="1100,200" size="100,100">[JavaScript]
 const dataInicio = new Date()
-const minutosDePartida = engine.state.get(&#39;minutosDePartida&#39;)
+const minutosDePartida = engine.state.get(&#39;tempoDePartida&#39;)
 const dataTermino = new Date(dataInicio.getTime() + minutosDePartida * 60000)
 
 function formatarData (data) {
