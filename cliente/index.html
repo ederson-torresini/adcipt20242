@@ -234,6 +234,9 @@ Fim do jogo!</tw-passagedata><tw-passagedata pid="3" name="Quantidade de Jogador
 
 &gt; [[1 jogador-&gt;Solo]]
 &gt; [[2 jogadores-&gt;Dupla]]</tw-passagedata><tw-passagedata pid="4" name="Capa" tags="" position="700,200" size="100,100">tempoDePartida: 10
+fimDeJogo: false
+produto: 16
+tijolinhos: 100
 GoogleClientID: &#39;331191695151-ku8mdhd76pc2k36itas8lm722krn0u64.apps.googleusercontent.com&#39;
 --
 {embed image: &#39;capa.png&#39;}
@@ -413,6 +416,21 @@ sound.ambient.solo.description: &#39;Trilha para partida solo&#39;
 {ambient sound: &#39;solo&#39;}
 {embed passage: &#39;Temporizador&#39;}
 
+[if fimDeJogo]
+Vá para o [[Final Triste]].
+[else]
+Vá para o [[Final Feliz]].
+[continue]</tw-passagedata><tw-passagedata pid="11" name="Dupla-0" tags="" position="1300,600" size="100,100">{embed passage: &#39;Temporizador&#39;}
+Encontre todas as chaves antes que o tempo acabe!
+
+&gt; [[Quanto tempo?-&gt;Solo-0]]
+
+[if fimDeJogo true]
+Vá para o [[Final Triste]].
+[else]
+Vá para o [[Final Feliz]].
+[continue]</tw-passagedata><tw-passagedata pid="12" name="Final Feliz" tags="" position="1500,400" size="100,100">Faça o login no Google para adicionar TJL${tijolinhos} de crédito.
+
 [JavaScript]
 window.setup = {}
 
@@ -449,8 +467,8 @@ setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
             &#39;Content-Type&#39;: &#39;application/json&#39;
           },
           body: JSON.stringify({
-            product: 1,
-            value: 100
+            product: engine.state.get(&#39;produto&#39;),
+            value: engine.state.get(&#39;tijolinhos&#39;)
           })
         }
         const req = new Request(url, options)
@@ -458,9 +476,9 @@ setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
         fetch(req)
           .then((response) =&gt; {
             if (response.ok) {
-              location.assign(&#39;https://sj.ifsc.edu.br&#39;)
+              console.log(response.status)
             } else {
-              console.error(response.status)
+              console.error(response)
             }
           }
         )
@@ -474,10 +492,7 @@ setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
     }
   })
 })
-[continued]</tw-passagedata><tw-passagedata pid="11" name="Dupla-0" tags="" position="1300,600" size="100,100">{embed passage: &#39;Temporizador&#39;}
-Encontre todas as chaves antes que o tempo acabe!
+[continued]</tw-passagedata><tw-passagedata pid="13" name="Final Triste" tags="" position="1500,600" size="100,100">Fim de Jogo!
 
-&gt; [[Quanto tempo?-&gt;Solo-0]]
-
-[if fimDeJogo]
-[[Referências]]</tw-passagedata></tw-storydata></html>
+{restart link, label: &#39;Jogar de novo!&#39;}
+</tw-passagedata></tw-storydata></html>
