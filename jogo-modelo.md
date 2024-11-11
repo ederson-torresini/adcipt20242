@@ -1,6 +1,42 @@
 # Jogo modelo
 
-## Partida em dupla
+## Servidor
+
+Serviço via `systemd`:
+
+```ini
+## Configuração do ambiente
+Servidor do jogo via `systemd`:
+```ini
+[Unit]
+Description=<Descritivo>
+Documentation=<URL do repositório>
+After=network.target
+
+[Service]
+Environment=PORT=3000
+Type=simple
+WorkingDirectory=<diretório local do repositório>
+ExecStart=<caminho do npm> start
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Proxy reverso HTTP via NGINX:
+
+```c
+location / {
+	proxy_pass http://localhost:3000/;
+	proxy_http_version 1.1;
+	proxy_set_header Upgrade $http_upgrade;
+	proxy_set_header Connection "Upgrade";
+	proxy_set_header Host $host;
+}
+```
+
+## Cliennte
 
 ### Escolha de sala e início de partida
 
