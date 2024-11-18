@@ -77,8 +77,9 @@ setup.loadScript = function (url, onloadFunction) {
   newScript.src = url
 }
 
-const audio = document.querySelector('conversa')
-console.log(audio)
+const audio = document.getElementById('conversa')
+console.log('audio', audio)
+
 const iceServers = {
   iceServers: [
     {
@@ -93,17 +94,21 @@ let midias
 navigator.mediaDevices.getUserMedia({ video: false, audio: true })
   .then((stream) => {
     midias = stream
+    console.log('midias', midias)
   })
   .catch((error) => console.error(error))
 
 setup.loadScript('https://cdn.socket.io/4.8.0/socket.io.min.js', () => {
+  let socket
   if (window.location.host === 'feira-de-jogos.dev.br') {
-    const socket = io({ path: '/adcipt20242/socket.io/' })
+    socket = io({ path: '/adcipt20242/socket.io/' })
   } else {
-    const socket = io()
+    socket = io()
   }
 
   const sala = engine.state.get('sala')
+  console.log('sala', sala)
+
   socket.on('connect', () => {
     socket.emit('entrar-na-sala', sala)
   })
@@ -123,7 +128,7 @@ setup.loadScript('https://cdn.socket.io/4.8.0/socket.io.min.js', () => {
 
         remoteConnection.ontrack = function ({ streams: [midia] }) {
           audio.srcObject = midia
-          console.log(audio, audio.srcObject)
+          console.log('audio.srcObject', audio.srcObject)
         }
 
         if (midias) {
@@ -153,7 +158,7 @@ setup.loadScript('https://cdn.socket.io/4.8.0/socket.io.min.js', () => {
 
         localConnection.ontrack = function ({ streams: [stream] }) {
           audio.srcObject = stream
-          console.log(audio, audio.srcObject)
+          console.log('audio.srcObject', audio.srcObject)
         }
 
         if (midias) {

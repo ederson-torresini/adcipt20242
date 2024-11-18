@@ -288,7 +288,8 @@ setup.loadScript = function (url, onloadFunction) {
 }
 
 const audio = document.getElementById(&#39;conversa&#39;)
-console.log(audio)
+console.log(&#39;audio&#39;, audio)
+
 const iceServers = {
   iceServers: [
     {
@@ -303,6 +304,7 @@ let midias
 navigator.mediaDevices.getUserMedia({ video: false, audio: true })
   .then((stream) =&gt; {
     midias = stream
+    console.log(&#39;midias&#39;, midias)
   })
   .catch((error) =&gt; console.error(error))
 
@@ -315,7 +317,7 @@ setup.loadScript(&#39;https://cdn.socket.io/4.8.0/socket.io.min.js&#39;, () =&gt
   }
 
   const sala = engine.state.get(&#39;sala&#39;)
-  console.log(sala)
+  console.log(&#39;sala&#39;, sala)
 
   socket.on(&#39;connect&#39;, () =&gt; {
     socket.emit(&#39;entrar-na-sala&#39;, sala)
@@ -336,7 +338,7 @@ setup.loadScript(&#39;https://cdn.socket.io/4.8.0/socket.io.min.js&#39;, () =&gt
 
         remoteConnection.ontrack = function ({ streams: [midia] }) {
           audio.srcObject = midia
-          console.log(audio, audio.srcObject)
+          console.log(&#39;audio.srcObject&#39;, audio.srcObject)
         }
 
         if (midias) {
@@ -366,7 +368,7 @@ setup.loadScript(&#39;https://cdn.socket.io/4.8.0/socket.io.min.js&#39;, () =&gt
 
         localConnection.ontrack = function ({ streams: [stream] }) {
           audio.srcObject = stream
-          console.log(audio, audio.srcObject)
+          console.log(&#39;audio.srcObject&#39;, audio.srcObject)
         }
 
         if (midias) {
