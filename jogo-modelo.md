@@ -5,9 +5,6 @@
 Serviço via `systemd`:
 
 ```ini
-## Configuração do ambiente
-Servidor do jogo via `systemd`:
-```ini
 [Unit]
 Description=<Descritivo>
 Documentation=<URL do repositório>
@@ -40,15 +37,16 @@ location / {
 
 ### Escolha de sala e início de partida
 
-Primeiro, modificar o código HTML. Logo após a marcação `<body>`, adicionar:
-
-```html
-<audio id="audio" autoplay></audio>
-```
-
-Depois, adicionar o seguinte código JavaScript na passagem para iniciar a partida em dupla:
+Em uma passagem, adicionar a variável que define a sala:
 
 ```js
+{text input for: 'sala'}
+```
+
+Depois, em uma passagem posterior deve-se adicionar o seguinte código JavaScript para iniciar a partida em dupla:
+
+```js
+[JavaScript]
 window.setup = {}
 
 setup.loadError = function (oError) {
@@ -67,6 +65,10 @@ setup.loadScript = function (url, onloadFunction) {
   newScript.async = true
   newScript.src = url
 }
+
+const audioObj = document.createElement('audio')
+audioObj.setAttribute('id', 'audio')
+audioObj.setAttribute('autoplay', 'true')
 
 const audio = document.querySelector('audio')
 const iceServers = {
@@ -164,4 +166,5 @@ setup.loadScript('https://cdn.socket.io/4.8.0/socket.io.min.js', () => {
     }
   })
 })
+[continued]
 ```
