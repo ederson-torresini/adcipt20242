@@ -83,6 +83,9 @@ console.log('audio', audio)
 const iceServers = {
   iceServers: [
     {
+      urls: 'stun:feira-de-jogos.dev.br'
+    },
+    {
       urls: 'turn:feira-de-jogos.dev.br',
       username: 'adcipt202412',
       credential: 'adcipt20242'
