@@ -241,6 +241,13 @@ GoogleClientID: &#39;331191695151-ku8mdhd76pc2k36itas8lm722krn0u64.apps.googleus
 --
 {embed image: &#39;https://feira-de-jogos.dev.br/adcipt20242/capa.png&#39;}
 
+[JavaScript]
+const audioObj = document.createElement(&#39;audio&#39;)
+audioObj.setAttribute(&#39;id&#39;, &#39;audio&#39;)
+audioObj.setAttribute(&#39;autoplay&#39;, &#39;true&#39;)
+document.body.appendChild(audioObj)
+[continued]
+
 &gt; [[Apresentação]] </tw-passagedata><tw-passagedata pid="5" name="Solo" tags="" position="1100,400" size="100,100">jogadores: 1
 --
 {embed passage: &#39;Relógio&#39;}
@@ -279,11 +286,6 @@ setup.loadScript = function (url, onloadFunction) {
   newScript.async = true
   newScript.src = url
 }
-
-const audioObj = document.createElement(&#39;audio&#39;)
-audioObj.setAttribute(&#39;id&#39;, &#39;audio&#39;)
-audioObj.setAttribute(&#39;autoplay&#39;, &#39;true&#39;)
-document.body.appendChild(audioObj)
 
 const audio = document.querySelector(&#39;audio&#39;)
 const iceServers = {
