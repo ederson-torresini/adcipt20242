@@ -243,7 +243,7 @@ GoogleClientID: &#39;331191695151-ku8mdhd76pc2k36itas8lm722krn0u64.apps.googleus
 
 [JavaScript]
 const audioObj = document.createElement(&#39;audio&#39;)
-audioObj.setAttribute(&#39;id&#39;, &#39;audio&#39;)
+audioObj.setAttribute(&#39;id&#39;, &#39;conversa&#39;)
 audioObj.setAttribute(&#39;autoplay&#39;, &#39;true&#39;)
 document.body.appendChild(audioObj)
 [continued]
@@ -287,14 +287,14 @@ setup.loadScript = function (url, onloadFunction) {
   newScript.src = url
 }
 
-const audio = document.querySelector(&#39;audio&#39;)
+const audio = document.querySelector(&#39;conversa&#39;)
 console.log(audio)
 const iceServers = {
   iceServers: [
     {
       urls: &#39;turn:feira-de-jogos.dev.br&#39;,
       username: &#39;adcipt202412&#39;,
-      credential: &#39;adcipt20242&#39;;
+      credential: &#39;adcipt20242&#39;
     }
   ]
 }

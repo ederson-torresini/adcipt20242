@@ -42,7 +42,7 @@ Adicionar logo na primeira passagem:
 ```js
 [JavaScript]
 const audioObj = document.createElement('audio')
-audioObj.setAttribute('id', 'audio')
+audioObj.setAttribute('id', 'conversa')
 audioObj.setAttribute('autoplay', 'true')
 document.body.appendChild(audioObj)
 [continued]
@@ -77,14 +77,14 @@ setup.loadScript = function (url, onloadFunction) {
   newScript.src = url
 }
 
-const audio = document.querySelector('audio')
+const audio = document.querySelector('conversa')
 console.log(audio)
 const iceServers = {
   iceServers: [
     {
       urls: 'turn:feira-de-jogos.dev.br',
       username: 'adcipt202412',
-      credential: 'adcipt20242';
+      credential: 'adcipt20242'
     }
   ]
 }
