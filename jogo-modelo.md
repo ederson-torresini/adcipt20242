@@ -37,7 +37,18 @@ location / {
 
 ### Escolha de sala e início de partida
 
-Em uma passagem, adicionar a variável que define a sala:
+Adicionar logo na primeira passagem:
+
+```js
+[JavaScript]
+const audioObj = document.createElement('audio')
+audioObj.setAttribute('id', 'audio')
+audioObj.setAttribute('autoplay', 'true')
+document.body.appendChild(audioObj)
+[continued]
+```
+
+Em uma passagem de escolha de sala, adicionar a variável que a define:
 
 ```js
 {text input for: 'sala'}
@@ -67,6 +78,7 @@ setup.loadScript = function (url, onloadFunction) {
 }
 
 const audio = document.querySelector('audio')
+console.log(audio)
 const iceServers = {
   iceServers: [
     {
@@ -111,6 +123,7 @@ setup.loadScript('https://cdn.socket.io/4.8.0/socket.io.min.js', () => {
 
         remoteConnection.ontrack = function ({ streams: [midia] }) {
           audio.srcObject = midia
+          console.log(audio, audio.srcObject)
         }
 
         if (midias) {
@@ -140,6 +153,7 @@ setup.loadScript('https://cdn.socket.io/4.8.0/socket.io.min.js', () => {
 
         localConnection.ontrack = function ({ streams: [stream] }) {
           audio.srcObject = stream
+          console.log(audio, audio.srcObject)
         }
 
         if (midias) {

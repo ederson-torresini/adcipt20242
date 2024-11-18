@@ -288,12 +288,13 @@ setup.loadScript = function (url, onloadFunction) {
 }
 
 const audio = document.querySelector(&#39;audio&#39;)
+console.log(audio)
 const iceServers = {
   iceServers: [
     {
       urls: &#39;turn:feira-de-jogos.dev.br&#39;,
       username: &#39;adcipt202412&#39;,
-      credential: &#39;adcipt20242&#39;
+      credential: &#39;adcipt20242&#39;;
     }
   ]
 }
@@ -306,11 +307,10 @@ navigator.mediaDevices.getUserMedia({ video: false, audio: true })
   .catch((error) =&gt; console.error(error))
 
 setup.loadScript(&#39;https://cdn.socket.io/4.8.0/socket.io.min.js&#39;, () =&gt; {
-  let socket
   if (window.location.host === &#39;feira-de-jogos.dev.br&#39;) {
-    socket = io({ path: &#39;/adcipt20242/socket.io/&#39; })
+    const socket = io({ path: &#39;/adcipt20242/socket.io/&#39; })
   } else {
-    socket = io()
+    const socket = io()
   }
 
   const sala = engine.state.get(&#39;sala&#39;)
@@ -333,6 +333,7 @@ setup.loadScript(&#39;https://cdn.socket.io/4.8.0/socket.io.min.js&#39;, () =&gt
 
         remoteConnection.ontrack = function ({ streams: [midia] }) {
           audio.srcObject = midia
+          console.log(audio, audio.srcObject)
         }
 
         if (midias) {
@@ -362,6 +363,7 @@ setup.loadScript(&#39;https://cdn.socket.io/4.8.0/socket.io.min.js&#39;, () =&gt
 
         localConnection.ontrack = function ({ streams: [stream] }) {
           audio.srcObject = stream
+          console.log(audio, audio.srcObject)
         }
 
         if (midias) {
