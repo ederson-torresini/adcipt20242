@@ -69,6 +69,7 @@ setup.loadScript = function (url, onloadFunction) {
 const audioObj = document.createElement('audio')
 audioObj.setAttribute('id', 'audio')
 audioObj.setAttribute('autoplay', 'true')
+document.body.appendChild(audioObj)
 
 const audio = document.querySelector('audio')
 const iceServers = {
