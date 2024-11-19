@@ -93,96 +93,88 @@ const iceServers = {
   ]
 }
 
-let midias
 navigator.mediaDevices.getUserMedia({ video: false, audio: true })
   .then((stream) => {
-    midias = stream
-    console.log('midias', midias)
+    setup.loadScript('https://cdn.socket.io/4.8.0/socket.io.min.js', () => {
+      let socket
+      if (window.location.host === 'feira-de-jogos.dev.br') {
+        socket = io({ path: '/adcipt20242/socket.io/' })
+      } else {
+        socket = io()
+      }
+
+      const sala = engine.state.get('sala')
+      console.log('sala', sala)
+
+      socket.on('connect', () => {
+        socket.emit('entrar-na-sala', sala)
+      })
+
+      socket.on('jogadores', (jogadores) => {
+        console.log(jogadores)
+        if (jogadores.segundo) {
+          if (jogadores.primeiro === socket.id) {
+            const remoteConnection = new RTCPeerConnection(iceServers)
+            const dadosJogo = remoteConnection.createDataChannel('dadosJogo', { negotiated: true, id: 0 })
+            console.log('remoteConnection', remoteConnection)
+            console.log('dadosJogo', dadosJogo)
+
+            remoteConnection.onicecandidate = function ({ candidate }) {
+              candidate && socket.emit('candidate', sala, candidate)
+            }
+
+            remoteConnection.ontrack = function ({ streams: [stream] }) {
+              audio.srcObject = stream
+              console.log('audio.srcObject', audio.srcObject)
+            }
+
+            stream.getTracks()
+              .forEach((track) => remoteConnection.addTrack(track, stream))
+
+            socket.on('offer', (description) => {
+              remoteConnection.setRemoteDescription(description)
+                .then(() => remoteConnection.createAnswer())
+                .then((answer) => remoteConnection.setLocalDescription(answer))
+                .then(() => socket.emit('answer', sala, remoteConnection.localDescription))
+            })
+
+            socket.on('candidate', (candidate) => {
+              remoteConnection.addIceCandidate(candidate)
+            })
+          } else if (jogadores.segundo === socket.id) {
+            const localConnection = new RTCPeerConnection(iceServers)
+            const dadosJogo = localConnection.createDataChannel('dadosJogo', { negotiated: true, id: 0 })
+            console.log('localConnection', localConnection)
+            console.log('dadosJogo', dadosJogo)
+
+            localConnection.onicecandidate = function ({ candidate }) {
+              candidate && socket.emit('candidate', sala, candidate)
+            }
+
+            localConnection.ontrack = function ({ streams: [stream] }) {
+              audio.srcObject = stream
+              console.log('audio.srcObject', audio.srcObject)
+            }
+
+            stream.getTracks()
+              .forEach((track) => localConnection.addTrack(track, stream))
+
+            localConnection.createOffer()
+              .then((offer) => localConnection.setLocalDescription(offer))
+              .then(() => socket.emit('offer', sala, localConnection.localDescription))
+
+            socket.on('answer', (description) => {
+              localConnection.setRemoteDescription(description)
+            })
+
+            socket.on('candidate', (candidate) => {
+              localConnection.addIceCandidate(candidate)
+            })
+          }
+        }
+      })
+    })
   })
   .catch((error) => console.error(error))
-
-setup.loadScript('https://cdn.socket.io/4.8.0/socket.io.min.js', () => {
-  let socket
-  if (window.location.host === 'feira-de-jogos.dev.br') {
-    socket = io({ path: '/adcipt20242/socket.io/' })
-  } else {
-    socket = io()
-  }
-
-  const sala = engine.state.get('sala')
-  console.log('sala', sala)
-
-  socket.on('connect', () => {
-    socket.emit('entrar-na-sala', sala)
-  })
-
-  socket.on('jogadores', (jogadores) => {
-    console.log(jogadores)
-    if (jogadores.segundo) {
-      if (jogadores.primeiro === socket.id) {
-        const remoteConnection = new RTCPeerConnection(iceServers)
-        const dadosJogo = remoteConnection.createDataChannel('dadosJogo', { negotiated: true, id: 0 })
-        console.log('remoteConnection', remoteConnection)
-        console.log('dadosJogo', dadosJogo)
-
-        remoteConnection.onicecandidate = function ({ candidate }) {
-          candidate && socket.emit('candidate', sala, candidate)
-        }
-
-        remoteConnection.ontrack = function ({ streams: [midia] }) {
-          audio.srcObject = midia
-          console.log('audio.srcObject', audio.srcObject)
-        }
-
-        if (midias) {
-          midias.getTracks()
-            .forEach((track) => remoteConnection.addTrack(track, midias))
-        }
-
-        socket.on('offer', (description) => {
-          remoteConnection.setRemoteDescription(description)
-            .then(() => remoteConnection.createAnswer())
-            .then((answer) => remoteConnection.setLocalDescription(answer))
-            .then(() => socket.emit('answer', sala, remoteConnection.localDescription))
-        })
-
-        socket.on('candidate', (candidate) => {
-          remoteConnection.addIceCandidate(candidate)
-        })
-      } else if (jogadores.segundo === socket.id) {
-        const localConnection = new RTCPeerConnection(iceServers)
-        const dadosJogo = localConnection.createDataChannel('dadosJogo', { negotiated: true, id: 0 })
-        console.log('localConnection', localConnection)
-        console.log('dadosJogo', dadosJogo)
-
-        localConnection.onicecandidate = function ({ candidate }) {
-          candidate && socket.emit('candidate', sala, candidate)
-        }
-
-        localConnection.ontrack = function ({ streams: [stream] }) {
-          audio.srcObject = stream
-          console.log('audio.srcObject', audio.srcObject)
-        }
-
-        if (midias) {
-          midias.getTracks()
-            .forEach((track) => localConnection.addTrack(track, midias))
-        }
-
-        localConnection.createOffer()
-          .then((offer) => localConnection.setLocalDescription(offer))
-          .then(() => socket.emit('offer', sala, localConnection.localDescription))
-
-        socket.on('answer', (description) => {
-          localConnection.setRemoteDescription(description)
-        })
-
-        socket.on('candidate', (candidate) => {
-          localConnection.addIceCandidate(candidate)
-        })
-      }
-    }
-  })
-})
 [continued]
 ```

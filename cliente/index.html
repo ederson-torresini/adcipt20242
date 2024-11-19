@@ -303,97 +303,89 @@ const iceServers = {
   ]
 }
 
-let midias
 navigator.mediaDevices.getUserMedia({ video: false, audio: true })
   .then((stream) =&gt; {
-    midias = stream
-    console.log(&#39;midias&#39;, midias)
+    setup.loadScript(&#39;https://cdn.socket.io/4.8.0/socket.io.min.js&#39;, () =&gt; {
+      let socket
+      if (window.location.host === &#39;feira-de-jogos.dev.br&#39;) {
+        socket = io({ path: &#39;/adcipt20242/socket.io/&#39; })
+      } else {
+        socket = io()
+      }
+
+      const sala = engine.state.get(&#39;sala&#39;)
+      console.log(&#39;sala&#39;, sala)
+
+      socket.on(&#39;connect&#39;, () =&gt; {
+        socket.emit(&#39;entrar-na-sala&#39;, sala)
+      })
+
+      socket.on(&#39;jogadores&#39;, (jogadores) =&gt; {
+        console.log(jogadores)
+        if (jogadores.segundo) {
+          if (jogadores.primeiro === socket.id) {
+            const remoteConnection = new RTCPeerConnection(iceServers)
+            const dadosJogo = remoteConnection.createDataChannel(&#39;dadosJogo&#39;, { negotiated: true, id: 0 })
+            console.log(&#39;remoteConnection&#39;, remoteConnection)
+            console.log(&#39;dadosJogo&#39;, dadosJogo)
+
+            remoteConnection.onicecandidate = function ({ candidate }) {
+              candidate &amp;&amp; socket.emit(&#39;candidate&#39;, sala, candidate)
+            }
+
+            remoteConnection.ontrack = function ({ streams: [stream] }) {
+              audio.srcObject = stream
+              console.log(&#39;audio.srcObject&#39;, audio.srcObject)
+            }
+
+            stream.getTracks()
+              .forEach((track) =&gt; remoteConnection.addTrack(track, stream))
+
+            socket.on(&#39;offer&#39;, (description) =&gt; {
+              remoteConnection.setRemoteDescription(description)
+                .then(() =&gt; remoteConnection.createAnswer())
+                .then((answer) =&gt; remoteConnection.setLocalDescription(answer))
+                .then(() =&gt; socket.emit(&#39;answer&#39;, sala, remoteConnection.localDescription))
+            })
+
+            socket.on(&#39;candidate&#39;, (candidate) =&gt; {
+              remoteConnection.addIceCandidate(candidate)
+            })
+          } else if (jogadores.segundo === socket.id) {
+            const localConnection = new RTCPeerConnection(iceServers)
+            const dadosJogo = localConnection.createDataChannel(&#39;dadosJogo&#39;, { negotiated: true, id: 0 })
+            console.log(&#39;localConnection&#39;, localConnection)
+            console.log(&#39;dadosJogo&#39;, dadosJogo)
+
+            localConnection.onicecandidate = function ({ candidate }) {
+              candidate &amp;&amp; socket.emit(&#39;candidate&#39;, sala, candidate)
+            }
+
+            localConnection.ontrack = function ({ streams: [stream] }) {
+              audio.srcObject = stream
+              console.log(&#39;audio.srcObject&#39;, audio.srcObject)
+            }
+
+            stream.getTracks()
+              .forEach((track) =&gt; localConnection.addTrack(track, stream))
+
+            localConnection.createOffer()
+              .then((offer) =&gt; localConnection.setLocalDescription(offer))
+              .then(() =&gt; socket.emit(&#39;offer&#39;, sala, localConnection.localDescription))
+
+            socket.on(&#39;answer&#39;, (description) =&gt; {
+              localConnection.setRemoteDescription(description)
+            })
+
+            socket.on(&#39;candidate&#39;, (candidate) =&gt; {
+              localConnection.addIceCandidate(candidate)
+            })
+          }
+        }
+      })
+    })
   })
   .catch((error) =&gt; console.error(error))
-
-setup.loadScript(&#39;https://cdn.socket.io/4.8.0/socket.io.min.js&#39;, () =&gt; {
-  let socket
-  if (window.location.host === &#39;feira-de-jogos.dev.br&#39;) {
-    socket = io({ path: &#39;/adcipt20242/socket.io/&#39; })
-  } else {
-    socket = io()
-  }
-
-  const sala = engine.state.get(&#39;sala&#39;)
-  console.log(&#39;sala&#39;, sala)
-
-  socket.on(&#39;connect&#39;, () =&gt; {
-    socket.emit(&#39;entrar-na-sala&#39;, sala)
-  })
-
-  socket.on(&#39;jogadores&#39;, (jogadores) =&gt; {
-    console.log(jogadores)
-    if (jogadores.segundo) {
-      if (jogadores.primeiro === socket.id) {
-        const remoteConnection = new RTCPeerConnection(iceServers)
-        const dadosJogo = remoteConnection.createDataChannel(&#39;dadosJogo&#39;, { negotiated: true, id: 0 })
-        console.log(&#39;remoteConnection&#39;, remoteConnection)
-        console.log(&#39;dadosJogo&#39;, dadosJogo)
-
-        remoteConnection.onicecandidate = function ({ candidate }) {
-          candidate &amp;&amp; socket.emit(&#39;candidate&#39;, sala, candidate)
-        }
-
-        remoteConnection.ontrack = function ({ streams: [midia] }) {
-          audio.srcObject = midia
-          console.log(&#39;audio.srcObject&#39;, audio.srcObject)
-        }
-
-        if (midias) {
-          midias.getTracks()
-            .forEach((track) =&gt; remoteConnection.addTrack(track, midias))
-        }
-
-        socket.on(&#39;offer&#39;, (description) =&gt; {
-          remoteConnection.setRemoteDescription(description)
-            .then(() =&gt; remoteConnection.createAnswer())
-            .then((answer) =&gt; remoteConnection.setLocalDescription(answer))
-            .then(() =&gt; socket.emit(&#39;answer&#39;, sala, remoteConnection.localDescription))
-        })
-
-        socket.on(&#39;candidate&#39;, (candidate) =&gt; {
-          remoteConnection.addIceCandidate(candidate)
-        })
-      } else if (jogadores.segundo === socket.id) {
-        const localConnection = new RTCPeerConnection(iceServers)
-        const dadosJogo = localConnection.createDataChannel(&#39;dadosJogo&#39;, { negotiated: true, id: 0 })
-        console.log(&#39;localConnection&#39;, localConnection)
-        console.log(&#39;dadosJogo&#39;, dadosJogo)
-
-        localConnection.onicecandidate = function ({ candidate }) {
-          candidate &amp;&amp; socket.emit(&#39;candidate&#39;, sala, candidate)
-        }
-
-        localConnection.ontrack = function ({ streams: [stream] }) {
-          audio.srcObject = stream
-          console.log(&#39;audio.srcObject&#39;, audio.srcObject)
-        }
-
-        if (midias) {
-          midias.getTracks()
-            .forEach((track) =&gt; localConnection.addTrack(track, midias))
-        }
-
-        localConnection.createOffer()
-          .then((offer) =&gt; localConnection.setLocalDescription(offer))
-          .then(() =&gt; socket.emit(&#39;offer&#39;, sala, localConnection.localDescription))
-
-        socket.on(&#39;answer&#39;, (description) =&gt; {
-          localConnection.setRemoteDescription(description)
-        })
-
-        socket.on(&#39;candidate&#39;, (candidate) =&gt; {
-          localConnection.addIceCandidate(candidate)
-        })
-      }
-    }
-  })
-})
 [continued]
 
 Preparado?
