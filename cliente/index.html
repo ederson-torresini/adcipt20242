@@ -488,6 +488,11 @@ setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
               alert(&quot;Crédito realizado com sucesso!&quot;)
               console.log(response.status)
             } else {
+              if (response.status == 429){
+                alert(&quot;Falha: operação duplicada.&quot;)
+              } else {
+                alert(&quot;Erro ao realizar operação de crédito.&quot;)
+              }
               console.error(response)
             }
           }
