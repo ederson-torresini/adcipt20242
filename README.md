@@ -47,7 +47,7 @@ O jogo pode ser personalizado com *skins*, tanto para os personagens quanto para
 | [Chernobily](https://github.com/Chernobily) | [2024.2](https://github.com/orgs/Chernobily/projects/2)  | [ChernoRPG](https://github.com/Chernobily/ChernoRPG) | 0 (6 tarefas) | 0 (0 tarefa) |
 | [Cryptobiosis](https://github.com/cryptobiosis-studio) | [2024.2](https://github.com/orgs/cryptobiosis-studio/projects/1) | [Gunslinger](https://github.com/cryptobiosis-studio/gunslinger) | 6 | 6 | 
 | [Guiter Hero Luthier](https://github.com/guitar-hero-luthier) | [2024.2](https://github.com/orgs/guitar-hero-luthier/projects/1) | [Guitar Hero Luthier](https://github.com/guitar-hero-luthier/guitar-hero-luthier) | 6 | 6 |
-| [Hidan Studion](https://github.com/Hidan-Studio) | Link quebrado | [Rescue Run](https://github.com/Hidan-Studio/rescue-run) | 0 | 0 |
+| [Hidan Studion](https://github.com/Hidan-Studio) | L[2024.2]('Lotion', ) | [Rescue Run](https://github.com/Hidan-Studio/rescue-run) | 0 | 0 |
 | [lendária studios](https://github.com/lendaria-studios) | [2024.2](https://github.com/orgs/lendaria-studios/projects/1) | [The Last Keepers](https://github.com/lendaria-studios/the-last-keepers) | 0 (8 tarefas) | 6 | 
 | [LM Enterprise](https://github.com/lmenterprise) | [2024.2](https://github.com/orgs/lmenterprise/projects/1) | [Mazel](https://github.com/lmenterprise/mazel) | 0 (7 entregas) | 6 |
 | [joginho](https://github.com/joginho) | [2024.2](https://github.com/orgs/joginho/projects/1) | [Suave na nave](https://github.com/joginho/joginho) | 6 | 6 |
