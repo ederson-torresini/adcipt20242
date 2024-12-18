@@ -44,7 +44,7 @@ O jogo pode ser personalizado com *skins*, tanto para os personagens quanto para
 
 | Equipe | Projeto | Jogo | Entrega 1 | Entrega 2 | Entrega 3 | Entrega 4 | Entrega 5 | Entrega 6 |
 |-|-|-|-|-|-|-|-|-|
-| [Chernobily](https://github.com/Chernobily) | [2024.2](https://github.com/orgs/Chernobily/projects/2)  | [ChernoRPG](https://github.com/Chernobily/ChernoRPG) | 6 | 0 | 0 | 0 | 0 | 0 |
+| [Chernobily](https://github.com/Chernobily) | [2024.2](https://github.com/orgs/Chernobily/projects/2)  | [ChernoRPG](https://github.com/Chernobily/ChernoRPG) | 6 | 6 | 6 | 6 | 0 | 0 |
 | [Cryptobiosis](https://github.com/cryptobiosis-studio) | [2024.2](https://github.com/orgs/cryptobiosis-studio/projects/1) | [Gunslinger](https://github.com/cryptobiosis-studio/gunslinger) | 6 | 6 | 6 | 6 | 6 | 6 |
 | [Guiter Hero Luthier](https://github.com/guitar-hero-luthier) | [2024.2](https://github.com/orgs/guitar-hero-luthier/projects/1) | [Guitar Hero Luthier](https://github.com/guitar-hero-luthier/guitar-hero-luthier) | 6 | 6 | 6 |6 | 6 | 6 |
 | [Higan Studion](https://github.com/Higan-Studio) | [2024.2](https://github.com/orgs/Higan-Studio/projects/1) | [Rescue Run](https://github.com/Higan-Studio/rescue-run) | 6 | 6 | 6 | 6 | 6 | 6 |
