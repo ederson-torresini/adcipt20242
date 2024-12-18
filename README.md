@@ -51,7 +51,7 @@ O jogo pode ser personalizado com *skins*, tanto para os personagens quanto para
 | [lendária studios](https://github.com/lendaria-studios) | [2024.2](https://github.com/orgs/lendaria-studios/projects/1) | [The Last Keepers](https://github.com/lendaria-studios/the-last-keepers) | 6 | 6 | 6 | 6 | 6 | 6 |
 | [LM Enterprise](https://github.com/lmenterprise) | [2024.2](https://github.com/orgs/lmenterprise/projects/1) | [Mazel](https://github.com/lmenterprise/mazel) | 6 | 6 | 6 | 6 | 6 | 0 |
 | [joginho](https://github.com/joginho) | [2024.2](https://github.com/orgs/joginho/projects/1) | [Suave na nave](https://github.com/joginho/joginho) | 6 | 6 | 0 | 0 | 0 | 0 |
-| [N K Corporeichom](https://github.com/n-k-corporeichom) | [2024.2](https://github.com/orgs/n-k-corporeichom/projects/1) | [jogo zumbi](https://github.com/n-k-corporeichom/jogo_zumbi) | 0 | 0 | 0 | 6 | 6 | 0 |
+| [N K Corporeichom](https://github.com/n-k-corporeichom) | [2024.2](https://github.com/orgs/n-k-corporeichom/projects/1) | [jogo zumbi](https://github.com/n-k-corporeichom/jogo_zumbi) | 6 | 6 | 6 | 6 | 6 | 0 |
 | [pixel por pixel](https://github.com/pixel-por-pixel) | [2024.2](https://github.com/orgs/pixel-por-pixel/projects/1) | [The fate of the letters](https://github.com/pixel-por-pixel/the-fate-of-the-letters) | 6 | 6 | 6 | 6 | 6 | 6 |
 | [seeus](https://github.com/seeus) | [2024.2](https://github.com/orgs/seeus/projects/1) | [Herdeiras da Magia](https://github.com/seeus/herdeiras-da-magia) | 6 | 6 | 6 | 6 | 6 | 6 |
 | [Piermed Games](https://github.com/Piermed-Games) | [2024.2](https://github.com/orgs/Piermed-Games/projects/1) | [Shape Adventure](https://github.com/Piermed-Games/Shape-Adventure) | 6 | 6 | 6 | 6 | 6 | 6 |
