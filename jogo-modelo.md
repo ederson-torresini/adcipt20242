@@ -33,7 +33,7 @@ location / {
 }
 ```
 
-## Cliennte
+## Cliente
 
 ### Escolha de sala e início de partida
 
